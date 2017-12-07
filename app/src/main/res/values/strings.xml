@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Servicios</string>
+
+    <string name="texto_boton1">Prueba Servicio</string>
+
+    <string name="texto_boton2">Servicio con Hilos Secundatios</string>
+
 </resources>

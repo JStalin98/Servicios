@@ -16,6 +16,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PruebaServicio" />
+
+        <service
+            android:name=".MiServicio"
+            android:process=":remote" />
+
+        <activity android:name=".ServicioConHilosSecundarios"></activity>
+        <service
+            android:name=".MiServicio2"
+            android:process=":remote" />
     </application>
 
 </manifest>
