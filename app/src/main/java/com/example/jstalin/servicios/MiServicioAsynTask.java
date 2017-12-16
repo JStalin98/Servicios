@@ -1,6 +1,7 @@
 package com.example.jstalin.servicios;
 
 import android.app.Service;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.IBinder;
@@ -15,7 +16,13 @@ import java.net.URL;
  */
 
 
-public class MiServicio2 extends Service {
+public class MiServicioAsynTask extends Service {
+
+    public static boolean isRunService = false;
+
+
+    DoBackgroundTask descarga;
+
     // llamado al crearse el servicio
     @Override
     public void onCreate() {
@@ -34,7 +41,8 @@ public class MiServicio2 extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         //simula la descarga de 4 archivos
         try {
-            new DoBackgroundTask().execute(new URL(
+            descarga = new DoBackgroundTask();
+            descarga.execute(new URL(
                     "http://www.amazon.com/somefiles.pdf"), new URL(
                     "http://www.wrox.com/somefiles.pdf"), new URL(
                     "http://www.google.com/somefiles.pdf"), new URL(
@@ -63,10 +71,11 @@ public class MiServicio2 extends Service {
     // Se ejeucta en un hilo de ejecución en segundo plano y es
     // donde se sitúa el código de larga duración.
     private class DoBackgroundTask extends AsyncTask<URL, Integer, Long> {
+
         protected Long doInBackground(URL... urls) {
             int count = urls.length;
             long totalBytesDownloaded = 0;
-            for (int i = 0; i < count; i++) {
+            for (int i = 0; i < count && isCancelled()==false; i++) {
                 totalBytesDownloaded += DownloadFile(urls[i]);
                 // ---calcula el porcentaje descargado
                 // reportando el progreso---
@@ -94,6 +103,7 @@ public class MiServicio2 extends Service {
                     .show();
             stopSelf();
         }
+
     }
 
     // llamado al finalizar el servicio
@@ -101,6 +111,7 @@ public class MiServicio2 extends Service {
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(this, "Servicio Destruido", Toast.LENGTH_LONG).show();
+        descarga.cancel(true);
     }
 }
 

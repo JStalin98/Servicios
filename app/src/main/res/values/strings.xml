@@ -1,8 +1,14 @@
 <resources>
     <string name="app_name">Servicios</string>
 
-    <string name="texto_boton1">Prueba Servicio</string>
+    <string name="texto_boton1">Ejemplo Servicio</string>
+    <string name="texto_boton2">Servicio con Hilos Secundarios</string>
+    <string name="texto_boton3">Intent Service</string>
 
-    <string name="texto_boton2">Servicio con Hilos Secundatios</string>
+
+
+    <string name="boton_iniciar">Arrancar Servicio</string>
+    <string name="boton_parar">Parar Servicio</string>
+    <string name="boton_calcular_operacion">Calcular Operacion</string>
 
 </resources>

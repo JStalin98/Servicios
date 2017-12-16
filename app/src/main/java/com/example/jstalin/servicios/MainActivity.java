@@ -16,17 +16,26 @@ public class MainActivity extends AppCompatActivity {
 
     public void accionBoton1(View v){
 
-        Intent i = new Intent(this, PruebaServicio.class);
+        Intent i = new Intent(this, EjemploService.class);
         startActivity(i);
 
     }
 
     public void accionBoton2(View v){
 
-        Intent i = new Intent(this, ServicioConHilosSecundarios.class);
+        Intent i = new Intent(this, ServiciosHiloSecundario01Activity.class);
         startActivity(i);
 
     }
+
+    public void accionBoton3(View v){
+
+        Intent i = new Intent(this, IntentServiceActivity.class);
+        startActivity(i);
+
+    }
+
+
 
 
 }

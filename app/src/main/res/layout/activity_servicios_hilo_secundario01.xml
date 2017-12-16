@@ -5,33 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.jstalin.servicios.MainActivity">
+    tools:context="com.example.jstalin.servicios.ServiciosHiloSecundario01Activity">
 
     <Button
-        android:id="@+id/boton1"
+        android:id="@+id/button_iniciar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/texto_boton1"
-        android:onClick="accionBoton1"
-        />
+        android:text="@string/boton_iniciar"
+        android:onClick="accionIniciar"/>
 
     <Button
-        android:id="@+id/boton2"
+        android:id="@+id/button_parar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/texto_boton2"
-        android:onClick="accionBoton2"
-        />
-
-
-    <Button
-        android:id="@+id/boton3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/texto_boton3"
-        android:onClick="accionBoton3"
-        />
-
-
+        android:text="@string/boton_parar"
+        android:onClick="accionParar"/>
 
 </LinearLayout>

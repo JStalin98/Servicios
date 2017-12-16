@@ -4,16 +4,21 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class ServicioConHilosSecundarios extends AppCompatActivity {
+public class EjemploService extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_servicio_con_hilos_secundarios);
+        setContentView(R.layout.activity_ejemplo_service);
 
-        Intent servicio = new Intent(this, MiServicio2.class);
+
+
+        Intent servicio = new Intent(this, MiServicio.class);
 
         startService(servicio);
 
+
+
     }
 }
+
