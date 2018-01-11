@@ -26,7 +26,8 @@
             android:process=":remote" />
 
         <activity android:name=".ServiciosHiloSecundario01Activity" />
-        <activity android:name=".IntentServiceActivity"></activity>
+        <activity android:name=".IntentServiceActivity" />
+        <activity android:name=".BroadcastReceiverActivity"></activity>
     </application>
 
 </manifest>

@@ -6,7 +6,6 @@
     <string name="texto_boton3">Intent Service</string>
 
 
-
     <string name="boton_iniciar">Arrancar Servicio</string>
     <string name="boton_parar">Parar Servicio</string>
     <string name="boton_calcular_operacion">Calcular Operacion</string>
