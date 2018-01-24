@@ -32,6 +32,14 @@
         android:onClick="accionBoton3"
         />
 
+    <Button
+        android:id="@+id/boton4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/texto_boton4"
+        android:onClick="accionBoton4"
+        />
+
 
 
 </LinearLayout>

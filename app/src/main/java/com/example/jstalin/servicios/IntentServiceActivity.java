@@ -1,6 +1,9 @@
 package com.example.jstalin.servicios;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,16 +27,25 @@ public class IntentServiceActivity extends AppCompatActivity {
 
         salida = (TextView) findViewById(R.id.salida);
 
+        IntentFilter filtro = new
+                IntentFilter(ReceptorOperacion.ACTION_RESP);
+
+        filtro.addCategory(Intent.CATEGORY_DEFAULT);
+
+        registerReceiver(new ReceptorOperacion(), filtro);
+
     }
 
 
     public void calcularOperacion(View view) {
+
         double n = 0;
         try {
             n = Double.parseDouble(entrada.getText().toString());
         } catch (NumberFormatException nfe) {
             Log.d("ERROR", "Error en el formato del numero");
         }
+
         salida.append(n + "^2 = ");
 
         Intent i = new Intent(this, IntentServiceOperacion.class);
@@ -43,6 +55,22 @@ public class IntentServiceActivity extends AppCompatActivity {
         startService(i);
 
         Log.d("ERROR", "ENTRO FIN CALCULAR OPERACION------------------");
+
+    }
+
+    public class ReceptorOperacion extends BroadcastReceiver {
+
+        public static final String ACTION_RESP=
+                "com.example.intentservice.intent.action.RESPUESTA_OPERACION";
+
+        @Override
+        public void onReceive(Context context, Intent intent) {
+
+            Double res = intent.getDoubleExtra("resultado", 0.0);
+
+            salida.append(" "+ res);
+
+        }
 
     }
 

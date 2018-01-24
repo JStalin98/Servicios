@@ -27,7 +27,14 @@
 
         <activity android:name=".ServiciosHiloSecundario01Activity" />
         <activity android:name=".IntentServiceActivity" />
-        <activity android:name=".BroadcastReceiverActivity"></activity>
+        <activity android:name=".BroadcastReceiverActivity" />
+
+        <service android:name=".IntentServiceOperacion" />
+
+        <activity android:name=".MusicaActivity"></activity>
+
+        <service android:name=".ServicioMusica" />
+
     </application>
 
 </manifest>

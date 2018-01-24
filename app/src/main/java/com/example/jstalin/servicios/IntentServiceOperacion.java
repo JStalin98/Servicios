@@ -29,9 +29,20 @@ public class IntentServiceOperacion extends IntentService {
 
         SystemClock.sleep(5000);
 
-        IntentServiceActivity.salida.append(n*n + "\n");
+       // IntentServiceActivity.salida.append(n*n + "\n");
 
         Log.d("ERROR", "ENTRO INTENT SERVICE OPERATION ---------------");
+
+        Intent i = new Intent();
+
+        i.setAction(IntentServiceActivity.ReceptorOperacion.ACTION_RESP);
+
+        i.addCategory(Intent.CATEGORY_DEFAULT);
+
+        i.putExtra("resultado", n*n);
+
+        sendBroadcast(i);
+
 
     }
 
