@@ -2,6 +2,7 @@ package com.example.jstalin.servicios;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
@@ -18,6 +19,7 @@ public class ServicioMusica extends Service {
 
     private NotificationManager nm;
 
+    Notification myNotication;
     private static final int ID_NOTIFICACION_CREAR = 1;
 
     @Override
@@ -40,11 +42,28 @@ public class ServicioMusica extends Service {
         Toast.makeText(this,"Servicio arrancado "+ idArranque,
                 Toast.LENGTH_SHORT).show();
 
+        Intent intent = new Intent(this, MainActivity.class);
+
+        PendingIntent intencionPendiente =PendingIntent.getActivity(this, 1, intent, 0);
+
+        Notification.Builder builder=new Notification.Builder(this);
+
+
+        builder.setAutoCancel(false);
+        builder.setTicker("TICKER");
+        builder.setContentTitle("Reproductor");
+        builder.setContentText("ServicioMusica App");
+        builder.setSmallIcon(R.drawable.icono_reporductor);
+        builder.setContentIntent(intencionPendiente);
+        builder.setOngoing(true);
+        builder.setNumber(100);
+        //builder.build();
+        myNotication = builder.getNotification();
+        nm.notify(ID_NOTIFICACION_CREAR, myNotication);
+
         reproductor.start();
 
         return START_STICKY;
-
-        Notification notificacion = new Notification(R.drawable.icono_reporductor, "Creando Servicio de Música",System.currentTimeMillis());
 
     }
 

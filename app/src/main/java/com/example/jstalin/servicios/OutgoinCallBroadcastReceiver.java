@@ -3,6 +3,7 @@ package com.example.jstalin.servicios;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -13,6 +14,7 @@ public class OutgoinCallBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String phoneNumber = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
-        Toast.makeText(context, phoneNumber, Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, phoneNumber + "----------", Toast.LENGTH_SHORT).show();
+        Log.d("ERROR", "ENTRO BROADCAST RECEIVER");
     }
 }
